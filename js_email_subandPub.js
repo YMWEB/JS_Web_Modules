@@ -1,5 +1,8 @@
 /*this is the pub/sub*/
 
-var emails = function(){
-	
+var topics = [];
+var sub = function(topic,fun){
+	if(topicshas topic){
+		topics[topic].
+	}
 }
