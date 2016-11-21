@@ -2,6 +2,7 @@
 	<head>
 	<meta charset='utf-8'>
 	<title>test simply</title>
+	/* escape used to prevent users plant the harmful scripts into the backend system - xss */
 	<style>
 		a{
 			border:1px solid lightgrey;
@@ -17,8 +18,6 @@
 	<script>
 	$('button').on('click',function(){
 		var data = $('#testId').val()
-
-
 		$('p').text(data);
 	})
 	
