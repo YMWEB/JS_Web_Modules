@@ -6,3 +6,6 @@ var sub = function(topic,fun){
 		topics[topic].
 	}
 }
+var pub = function(topic,fun){
+	
+}
