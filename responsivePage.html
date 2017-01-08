@@ -1,0 +1,76 @@
+<html>
+	<head>Responsive Page</head>
+	<style>
+	html.body{
+		height:100%;
+		width:100%;
+	}
+	div.bgimg{
+
+		max-width:100%;
+		height:100%;
+		border:1px solid red;
+		background-size: contain;
+	}
+	img.bgimg{
+		max-width:100%;
+		border:1px solid red;
+	}
+	#div-1{
+		width:100%;
+		height:100%;
+		border:1px solid lightgrey;
+	}
+	#div-2{
+		width:100%;
+		height:100%;
+		border:1px solid lightgrey;
+	}
+	header{
+		height:500px;
+		height:80vh;
+		min-height:300px;
+		max-height:1080px;
+	/*	background:url("p5header.png") no-repeat;*/
+		background-position: 50% 0;
+		border:1px solid lightgrey;
+		background-size: cover;
+		position:relative;
+		font-size:2.5rem;
+	}
+	#div-3{
+		text-align: center;
+		border:1px solid green;
+		position:absolute;
+		width:auto;
+		top:50%;
+		left:50%;
+		transform:translate(-50%,-50%)
+	}
+	h1{
+		font-size:2em;
+	}
+	</style>
+	<body>
+		<!-- if the background is responsive  -->
+		<!-- <div class="bgimg"></div> -->
+		<!-- if it has the parent -->
+<!-- 		<div id="div-1">
+			<div class="bgimg"></div>
+		</div> -->
+
+		<header>
+		<div id="div-2">
+			<img class="bgimg" src="p5header.png"/>
+		</div>
+<!-- 		<div id="div-3">
+			<h1>Big Head Title</h1>
+			<time>2015-3-10</time>
+		</div> -->
+		</header>
+		<!--use width:100%,height:100% if need-->
+
+		<!--media query -->
+	</body>
+</html>
+

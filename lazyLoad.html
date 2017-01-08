@@ -1,0 +1,95 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<div class="tdiv" style="width:100%;height:1000px;background:red;visibility:hidden"></div>
+		<div class="tdiv" style="width:100%;height:200px;background:lightgreen;visibility:hidden"></div>	
+		<script>
+		var LazyLoad = function(elements){
+			this.elements = elements;
+			this.loadEle =function(ele){
+			// var srcURL = ele.getAttribute(srcAttrName);
+			// elem.src = srcURL;
+				ele.style.visibility = "visible"
+			}
+		};
+		LazyLoad.prototype.load = function(){
+			var that = this;
+			var _viewportHeight=window.innerHeight,_pageYOffset;
+			function setViewHeight(){
+				_viewportHeight = window.innerHeight
+			}
+			function setPageYOffset(){
+				_pageYOffset = window.pageYOffset
+			}
+			function  checkIfInView(ele){
+				var x = ele.getBoundingClientRect().top;
+				if(x){
+					if(x>0&&x<=_viewportHeight){
+						return true
+					}
+					return false;
+				}else{
+					var top = ele.offsetTop;
+					var parent = ele.offsetParent;
+					while(parent){
+						top += parent.offsetParent||0;
+						parent = parent.offsetParent;
+					}
+					if(top>_pageYOffset&&top<=_viewportHeight+_pageYOffset){
+						return true;
+					}
+					return false
+				}
+			}
+
+			function checkAvailable(){
+				for(var i =0;i<that.elements.length;i++){
+					var el = that.elements[i];
+					if(checkIfInView(el)){
+						that.loadEle(el);
+						that.elements.splice(i,1)
+					}
+				}
+			}
+
+			// var isScrolling ＝ false;
+			// function junk(){
+			// 	var start = +new Date;
+			// 	var duration = 1000*3;
+			// 	while((+new Date) - start <=duration){}
+			// 		isScrolling = false;
+			// }
+			// setInterval(function(){
+			// 	if(isScrolling){
+			// 		junk()
+			// 	}
+			// },1000)
+
+			var initialized = false;
+			function scrollEventHandler(){
+				if(!initialized){
+					requestAnimationFrame(function update(){
+						checkAvailable()
+						requestAnimationFrame(update)
+				})
+				}
+				initizalized = true;
+			}
+			window.onresize = function(){
+				setViewHeight()
+			}
+			window.onscroll = function(){
+				setPageYOffset()
+				scrollEventHandler()
+			}
+
+		}
+		/* start */
+		var elements = Array.prototype.slice.call(document.getElementsByClassName('tdiv'));
+		var lazyload = new LazyLoad(elements);
+		lazyload.load()
+		</script>
+	</body>
+</html>
+
