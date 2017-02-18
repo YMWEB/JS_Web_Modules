@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <section data-user-section="myaddress" class="user myaddress">
+        <div class="sub-title">
+            <div class="subtitle-name">
+                地址管理
+            </div>
+        </div>
+        <div>
+            <form id="addressUpdate" method="post" novalidate="novalidate">
+                <div>
+                    <div class="address-panel">
+                        <div>
+                            <div class="title name">收货人</div>
+                            <div class="body name"><input class="name" disabled name="name" value="" /></div>
+                        </div>
+                        <div>
+                            <div class="title region">地区</div>
+                            @*/* region compnoent */*@
+                            <input type="hidden" id="province" name="province" data-name="" value=""/>
+                            <input type="hidden" id="city" name="city" value="" data-name=""/>
+                            <div class="body region">
+                                <div id="region-select" class="region-select"></div>
+                                <div class="menu-drop-down-icon"><span class="glyphicon glyphicon-chevron-down"></span></div>
+                                <div id="region-component" class="region-overlay hidden">
+                                    <div class="region-overlay-content">
+                                        <div class="region-select-wrap">
+                                            <div class="region-select-tab">
+                                                <a class="current" data-target="region-province">省份</a>
+                                                <a class="" data-target="region-city">城市</a>
+                                            </div>
+                                            <div class="region-select-content">
+                                                <div class="region-select region-province"></div>
+                                                <div class="region-select region-city"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @*/* region component */*@
+                        </div>
+                        <div>
+                            <div class="title detail">详细地址</div>
+                            <div class="body detail"><input class="detail" disabled name="address" value="pingfu Road 188" /></div>
+                        </div>
+                        <div>
+                        <div class="title zip">邮编</div>
+                        <div class="body zip"><input class="zip" disabled name="zip" value="201011" /></div>
+                    </div>
+                    <div>
+                        <div class="title email">邮箱</div>
+                        <div class="body email"><input class="email zip" disabled name="email" value="1@email.com" /></div>
+                    </div>
+                    <div>
+                        <div class="title mobile">联系方式</div>
+                        <div class="body mobile0"><input class="mobile" disabled name="mobile" value="10003000" /></div>
+                    </div>
+                </div>
+        </div>
+        <div class="col-xs-2 col-md-2 pull-right" style="display:none;">
+            <input type="submit" value="确定" />
+        </div>
+        </form>
+        </div>
+    </section>
+
+    <script data-main="/scripts/myaddress.js" src="/scripts/lib/require.js"></script>
+  </body>
+</html>
